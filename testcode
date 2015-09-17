@@ -1,0 +1,20 @@
+Predecessor(TreeNode node){
+	
+	if(node.left != null){       //     Is there a right-most node in 
+		p = node.left			 //	    the left subtree? If so, 
+								 //		traverse to the right and check.
+		while(p.right != null)
+		p = p.right;
+	
+		return p;
+	}
+
+	else{
+		p = node.parent;		 //		Otherwise, traverse up to the 							 //		parent node
+		while(p != null && p.left == node){
+		node = p;
+		p = node.parent;
+	}
+	
+	return p;
+}
